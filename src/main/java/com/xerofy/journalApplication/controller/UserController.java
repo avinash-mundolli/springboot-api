@@ -21,10 +21,7 @@ public class UserController {
     @Autowired
     private UserServices userServices;
 
-    @PostMapping
-    public void createById(@RequestBody User user){
-        userServices.saveEntry(user);
-    }
+
     @PutMapping
     public ResponseEntity<?> updateUser(@RequestBody User user){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -36,9 +33,9 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     @DeleteMapping
-    public ResponseEntity<?> deleteByUser(@RequestBody User user){
+       public ResponseEntity<?> deleteByUser(@RequestBody User user){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        userRepository.deleteByUsername(authentication.getName());
+        userRepository.deleteByUserName(authentication.getName());
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 

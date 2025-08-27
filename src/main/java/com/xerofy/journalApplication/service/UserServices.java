@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,20 +18,18 @@ import java.util.Optional;
 
 @Component
 public class UserServices {
-
-    private static final PasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
     @Autowired
+    private  PasswordEncoder passwordEncoder;
+    @Autowired
+
     private UserRepository userRepository;
 
-    public List<User> getAll(){
-        return userRepository.findAll();
-    }
 
     public void saveNewEntry(User user ){
         userRepository.save(user);
     }
-    public void saveEntry(User user ){
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+    public void saveEntry(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword())); // Use injected encoder
         user.setRole(Arrays.asList("User"));
         userRepository.save(user);
     }

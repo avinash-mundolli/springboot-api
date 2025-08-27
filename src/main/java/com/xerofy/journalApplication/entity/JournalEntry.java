@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.lang.annotation.Documented;
 import java.time.LocalDateTime;
 
-@Document(collection = "journal_entries_journal ")
+@Document(collection = "journal_entries_journal")
 @Data
 @NoArgsConstructor
 public class JournalEntry {
@@ -20,7 +20,6 @@ public class JournalEntry {
     @NonNull
     private String title;
     private String content;
-    private LocalDateTime date;
 
 
 }

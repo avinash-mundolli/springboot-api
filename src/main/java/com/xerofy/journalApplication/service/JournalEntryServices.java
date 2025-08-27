@@ -22,7 +22,7 @@ public class JournalEntryServices {
     public List<JournalEntry> getAll(){
         return journalEntryRepository.findAll();
     }
-    @Transactional
+     @Transactional
     public void saveEntry(JournalEntry journalEntry, String userName){
         try{
             User user=userServices.findByUserName(userName);
