@@ -29,7 +29,7 @@ public class UserController {
         User userInDb=  userServices.findByUserName(userName);
             userInDb.setUserName(user.getUserName());
             userInDb.setPassword(user.getPassword());
-            userServices.saveEntry(userInDb);
+            userServices.saveNewUser(userInDb);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     @DeleteMapping

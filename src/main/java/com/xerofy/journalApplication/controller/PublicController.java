@@ -13,7 +13,7 @@ public class PublicController {
 
     @PostMapping("/create-user")
     public void createById(@RequestBody User user){
-        userServices.saveEntry(user);
+        userServices.saveNewUser(user);
     }
     @GetMapping("/health-check")
     public String healthCheck(){

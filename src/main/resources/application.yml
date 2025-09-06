@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: prod
+
+logging:
+  level:
+    com:
+      xerofy:
+        journalApplication: DEBUG
